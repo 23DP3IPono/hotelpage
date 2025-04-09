@@ -1,50 +1,81 @@
 <!DOCTYPE html>
 <html lang="lv">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programmas Vizītkarte</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Viesnīcu Rezervācijas Sistēma</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
 </head>
 <body>
-    <header>
-        <h1>Programmas Nosaukums</h1>
-        <nav>
-            <ul>
-                <li><a href="#hero">Sākums</a></li>
-                <li><a href="#about">Par Sistēmu</a></li>
-                <li><a href="#download">Lejupielāde</a></li>
-                <li><a href="#guide">Lietotāja Ceļvedis</a></li>
-                <li><a href="#footer">Kontakti</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <div class="container nav-container">
+      <div class="logo">Viesnīcu Rezervācija</div>
+      <ul class="nav-links">
+        <li><a href="#hero">Sākums</a></li>
+        <li><a href="#about">Par Sistēmu</a></li>
+        <li><a href="#download">Lejupielāde</a></li>
+        <li><a href="#guide">Ceļvedis</a></li>
+        <li><a href="#footer">Kontakti</a></li>
+      </ul>
+    </div>
+  </header>
 
-    <section id="hero">
-        <h2>Laipni lūdzam!</h2>
-        <p>Šī ir jūsu programmas vizītkartes mājaslapa.</p>
-    </section>
+  <section id="hero">
+    <div class="hero-overlay">
+      <div>
+        <h1>Laipni lūdzam!</h1>
+        <p>Šī ir viesnīcu rezervācijas sistēmas vizītkartes mājaslapa.</p>
+        <a href="#about" class="btn">Uzzināt vairāk</a>
+      </div>
+    </div>
+  </section>
 
-    <section id="about">
-        <h2>Par Sistēmu</h2>
-        <p>Šeit būs informācija par izstrādāto sistēmu un tās funkcionalitāti.</p>
-    </section>
+  <section id="about" class="fade-in">
+    <div class="container">
+      <h2>Par Sistēmu</h2>
+      <p>Šī sistēma ļauj pārvaldīt viesnīcu rezervācijas, pievienot un dzēst rezervācijas, kā arī meklēt rezervācijas pēc viesa vārda.</p>
+    </div>
+  </section>
 
-    <section id="download">
-        <h2>Lejupielāde</h2>
-        <p>Lejupielādējiet sistēmu šeit:</p>
-        <a href="path/to/your/program.zip" download>Lejupielādēt</a>
-    </section>
+  <section id="download" class="fade-in">
+    <div class="container">
+      <h2>Lejupielāde</h2>
+      <p>Lejupielādējiet sistēmu šeit:</p>
+      <a href="#" class="btn" id="downloadBtn">Lejupielādēt</a>
+    </div>
+  </section>
 
-    <section id="guide">
-        <h2>Lietotāja Ceļvedis</h2>
-        <p>Šeit būs lietotāja ceļvedis, kas palīdzēs jums izmantot sistēmu.</p>
-    </section>
+  <section id="guide" class="fade-in">
+    <div class="container">
+      <h2>Lietotāja Ceļvedis</h2>
+      <div class="guide-list">
+        <p>1. Pievienojiet rezervāciju, ievadot datus.</p>
+        <p>2. Dzēsiet rezervāciju pēc numura.</p>
+        <p>3. Skatiet visas rezervācijas.</p>
+        <p>4. Meklējiet pēc viesa vārda.</p>
+      </div>
+    </div>
+  </section>
 
-    <footer id="footer">
-        <p>Kontakti: jūsu.epasts@example.com</p>
-    </footer>
+  <footer id="footer">
+    <div class="container">
+      <p>Kontakti: @gmail.com</p>
+      <div class="socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </footer>
 
-    <script src="script.js"></script>
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <p>Lejupielāde sākās!</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

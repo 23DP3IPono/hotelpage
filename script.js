@@ -1,15 +1,9 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
   const modal = document.getElementById('modal');
   const downloadBtn = document.getElementById('downloadBtn');
-  const closeBtns = document.querySelectorAll('.close-btn');
-  const scrollTopBtn = document.getElementById('scrollTopBtn');
-  const themeSwitch = document.getElementById('themeSwitch');
-  const body = document.body;
-  const modeLabel = document.querySelector('.mode-label');
-  const guidePopup = document.getElementById('guidePopup');
-  const guideMessage = document.getElementById('guideMessage');
+  const closeBtn = document.querySelector('.close-btn');
 
-  downloadBtn.onclick = function () {
+  downloadBtn.onclick = () => {
     modal.style.display = 'flex';
     setTimeout(() => {
       modal.style.display = 'none';
@@ -17,58 +11,40 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 2000);
   };
 
-  closeBtns.forEach(btn => {
-    btn.onclick = () => {
-      btn.closest('.modal').style.display = 'none';
-    };
-  });
-
-  window.onclick = function (event) {
-    if (event.target.classList.contains('modal')) {
-      event.target.style.display = 'none';
-    }
+  closeBtn.onclick = () => {
+    modal.style.display = 'none';
   };
 
-  const observer = new IntersectionObserver((entries) => {
+  window.onclick = (e) => {
+    if (e.target === modal) modal.style.display = 'none';
+  };
+
+  const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
+      if (entry.isIntersecting) entry.target.classList.add('visible');
     });
   }, { threshold: 0.2 });
 
-  document.querySelectorAll('section').forEach(section => {
-    observer.observe(section);
-  });
+  document.querySelectorAll('section').forEach(section => observer.observe(section));
 
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function (e) {
       e.preventDefault();
       const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
-      }
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
     });
   });
 
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
   window.addEventListener('scroll', () => {
-    scrollTopBtn.style.display =
-      window.scrollY > 100 ? 'flex' : 'none';
+    if (window.scrollY > 20) {
+      scrollTopBtn.style.display = 'flex';
+    } else {
+      scrollTopBtn.style.display = 'none';
+    }
   });
 
   scrollTopBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-
-  themeSwitch.addEventListener('change', () => {
-    body.classList.toggle('dark-mode');
-    modeLabel.textContent = body.classList.contains('dark-mode') ? '🌙' : '🌞';
-  });
-
-  document.querySelectorAll('.guide-step').forEach(step => {
-    step.addEventListener('click', () => {
-      guideMessage.textContent = step.dataset.msg;
-      guidePopup.style.display = 'flex';
-    });
   });
 });

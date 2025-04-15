@@ -12,7 +12,7 @@
     <div class="container nav-container">
       <div class="logo">
         <a href="#hero">
-          <img src="https://media.discordapp.net/attachments/1301134435453894656/1354877692834615476/A1C09586-48CB-4C0C-91A3-4B0D4ECEF21D.png?ex=67fa016e&is=67f8afee&hm=618e9059487297ed598ac56d7ac9aa7df738cc575ad336477ed27852578ce817&=&format=webp&quality=lossless" alt="Logo">
+          <img src="src/images/A1C09586-48CB-4C0C-91A3-4B0D4ECEF21D.jpg" alt="Logo">
           <span class="logo-text">Roomly</span>
         </a>
       </div>
@@ -23,6 +23,13 @@
         <li><a href="#guide">Ceļvedis</a></li>
         <li><a href="#footer">Kontakti</a></li>
       </ul>
+    </div>
+    <div class="theme-toggle">
+      <label class="switch">
+        <input type="checkbox" id="themeSwitch">
+        <span class="slider"></span>
+      </label>
+      <span class="mode-label">🌞</span>
     </div>
   </header>
 
@@ -55,10 +62,10 @@
     <div class="container">
       <h2>Lietotāja Ceļvedis</h2>
       <div class="guide-list">
-        <p>1. Pievienojiet rezervāciju, ievadot datus.</p>
-        <p>2. Dzēsiet rezervāciju pēc numura.</p>
-        <p>3. Skatiet visas rezervācijas.</p>
-        <p>4. Meklējiet pēc viesa vārda.</p>
+        <p class="guide-step" data-msg="Aizpildiet viesa datus un rezervācijas datumu.">1. Pievienojiet rezervāciju, ievadot datus.</p>
+        <p class="guide-step" data-msg="Ievadiet rezervācijas numuru, lai dzēstu.">2. Dzēsiet rezervāciju pēc numura.</p>
+        <p class="guide-step" data-msg="Visas esošās rezervācijas tiks parādītas tabulā.">3. Skatiet visas rezervācijas.</p>
+        <p class="guide-step" data-msg="Ievadiet vārdu meklēšanas laukā, lai atrastu.">4. Meklējiet pēc viesa vārda.</p>
       </div>
     </div>
   </section>
@@ -78,6 +85,13 @@
     <div class="modal-content">
       <span class="close-btn">&times;</span>
       <p>Lejupielāde sākās!</p>
+    </div>
+  </div>
+
+  <div id="guidePopup" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <p id="guideMessage"></p>
     </div>
   </div>
 

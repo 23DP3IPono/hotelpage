@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.style.display = 'flex';
     setTimeout(() => {
       modal.style.display = 'none';
-      // Lejupielāde notiek automātiski, jo <a> tagam ir download atribūts
     }, 2000);
   });
 
@@ -19,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.target === modal) modal.style.display = 'none';
   };
 
-  // Sadaļu fade-in animācija
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -28,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('section').forEach(section => observer.observe(section));
 
-  // Funkciju bloku animācija
   const featureObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -37,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.feature').forEach(feature => featureObserver.observe(feature));
 
-  // Gluds scroll uz sadaļām
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', function (e) {
       e.preventDefault();
@@ -46,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Scroll uz augšu poga
   const scrollTopBtn = document.getElementById('scrollTopBtn');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 20) {
@@ -60,7 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  // Papildu animācija pogām
   document.querySelectorAll('.btn').forEach(btn => {
     btn.addEventListener('mouseenter', () => {
       btn.style.transform = 'scale(1.12)';
